@@ -13,7 +13,7 @@ pipeline {
             steps {
                 sh "docker-compose -f test-suites.yml up --pull=always"
                 script {
-                    if (fileExist('output/flight-reservation/testng-failed.xml') || fileExist('output/vendor-portal/testng-failed.xml')) {
+                    if (fileExists('output/flight-reservation/testng-failed.xml') || fileExists('output/vendor-portal/testng-failed.xml')) {
                         error('Test failed')
                     }
                 }
